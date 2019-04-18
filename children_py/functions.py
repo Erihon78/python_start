@@ -31,14 +31,14 @@ import sys
 from decimal import *
 
 def convert_celsius_to_fahrenheit():
-    print('What you weather degree in °C, function automatic convert it in fahrenheit?')
+    print('What you weather degree in °C (function automatic convert it in fahrenheit)?')
     # strip – function will remove leading and trailing whitespaces. 
     celsius = str(sys.stdin.readline()).strip()    
     # isdigit() - Return true if all characters in the string are digits and there is 
     # at least one character, false otherwise.
-    if celsius.strip('-+').isdigit():
-        fahrenheit =  (int(celsius) * Decimal(9)/Decimal(5)) + 32
-        print('Weather in fahrenheit is %s °F' % fahrenheit)
+    if celsius.strip('-+.').replace(".", "", 1).isdigit():
+        fahrenheit =  (Decimal(celsius) * Decimal(9)/Decimal(5)) + 32
+        print('Weather in fahrenheit is %s °F' % Decimal(fahrenheit).quantize(Decimal('1.0')))
     else:
         print('Celsius is not a number')
 
