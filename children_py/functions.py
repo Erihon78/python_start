@@ -27,12 +27,10 @@ import sys
 
 # silly_age_joke()
 
-def multiplication():
-    print('Type you first number')
-    a = int(sys.stdin.readline())
-    print('Typer you second number')
-    b = int(sys.stdin.readline())
+def convert_celsius_to_fahrenheit():
+    print('You weather degree in °C?')
+    celsius = int(sys.stdin.readline())
+    fahrenheit = (celsius * 9/5) + 32
+    print('Weather in fahrenheit is %s' % fahrenheit)
 
-    print(a * b);
-
-multiplication()
+convert_celsius_to_fahrenheit()
