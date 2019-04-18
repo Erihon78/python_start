@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 # def testfunc(myname):
 #     print('Hello, %s' % myname)
 
@@ -15,8 +18,6 @@
 
 # print(time.asctime());
 
-import sys
-
 # def silly_age_joke(age):
 #     print('How old you are?')
 #     age = int(sys.stdin.readline())
@@ -26,11 +27,19 @@ import sys
 #         print('Something?')
 
 # silly_age_joke()
+import sys
+from decimal import *
 
 def convert_celsius_to_fahrenheit():
-    print('You weather degree in °C?')
-    celsius = int(sys.stdin.readline())
-    fahrenheit = (celsius * 9/5) + 32
-    print('Weather in fahrenheit is %s' % fahrenheit)
+    print('What you weather degree in °C, function automatic convert it in fahrenheit?')
+    # strip – function will remove leading and trailing whitespaces. 
+    celsius = str(sys.stdin.readline()).strip()    
+    # isdigit() - Return true if all characters in the string are digits and there is 
+    # at least one character, false otherwise.
+    if celsius.strip('-+').isdigit():
+        fahrenheit =  (int(celsius) * Decimal(9)/Decimal(5)) + 32
+        print('Weather in fahrenheit is %s °F' % fahrenheit)
+    else:
+        print('Celsius is not a number')
 
 convert_celsius_to_fahrenheit()
